@@ -2,14 +2,21 @@
 
 
 var React = require('react-native');
-var {Text,View,TextInput,Navigator} = React;
+var {Text,View,TextInput,Navigator, Navigator} = React;
 
 var LoginScreen = require('./LoginScreen');
 var MainActivity = require('./MainActivity');
 
 class Trabble extends React.Component {
     render() {
-        return <LoginScreen></LoginScreen>
+        return (
+            <Navigator
+            style={{flex:1}}
+            initialRoute={{name: 'LoginScreen', component: LoginScreen, index: 0}}
+            renderScene={(route, navigator) =>    {
+                return React.createElement(route.component, {navigator});
+            }} />
+        )
     }
 }
 

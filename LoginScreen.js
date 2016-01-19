@@ -9,31 +9,36 @@ var MainActivity = require('./MainActivity');
 
 class LoginScreen extends React.Component {
 
-    Login(){
-
-      return  <Navigator
-            initialRoute={{name: 'MainActivity', component: MainActivity, index: 0}}
-            renderScene={(route, navigator) =>    {
-    return React.createElement(<MainActivity />);
-  }} />
-        }
-
-
-
-    render() {
-        return<View style={styles.loginView}>
-            <Image style={styles.image} source={require('./Ionic.png')}/>
-            <Text style={styles.loginText}>Chat System</Text>
-        <TextInput style={styles.usernameText} placeholder="username" placeholderTextColor="black"></TextInput>
-            <TextInput style={styles.passwordText} placeholder="password" placeholderTextColor="black" secureTextEntry></TextInput>
-        <TouchableWithoutFeedback  onPress={ () => this.Login() }><View style={styles.loginButton}  ><Text style={styles.loginButtonText}>Smit is smart</Text></View></TouchableWithoutFeedback>
-            <TouchableWithoutFeedback><View style={styles.signUpButton}><Text style={styles.signUpButtonText}>Sign Up</Text></View></TouchableWithoutFeedback>
-            <TouchableWithoutFeedback><View><Text style={styles.forgetPasswordText}>Forgot password?</Text></View></TouchableWithoutFeedback>
-        </View>
-
+    login() {
+        this.props.navigator.push({
+            component: MainActivity
+        })
     }
 
-
+    render() {
+        return(
+            <View style={styles.loginView}>
+                <Image style={styles.image} source={require('./Ionic.png')}/>
+                <Text style={styles.loginText}>Chat System</Text>
+                <TextInput style={styles.usernameText} placeholder="username" placeholderTextColor="black"></TextInput>
+                <TextInput style={styles.passwordText} placeholder="password" placeholderTextColor="black" secureTextEntry></TextInput>
+                <TouchableWithoutFeedback  onPress={ () => this.login() }>
+                    <View style={styles.loginButton}>
+                        <Text style={styles.loginButtonText}>Smit is smart</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback>
+                    <View style={styles.signUpButton}>
+                        <Text style={styles.signUpButtonText}>Sign Up</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={ () => this.login() }>
+                    <View>
+                        <Text style={styles.forgetPasswordText}>Forgot password?</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+        </View>)
+    }
 }
 
 var styles = React.StyleSheet.create({
