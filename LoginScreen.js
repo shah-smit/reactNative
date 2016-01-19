@@ -12,7 +12,9 @@ class LoginScreen extends React.Component {
 
     Login(){
 
-
+        this.props.navigator.push({
+            component: MainActivity
+        })
         }
 
 
