@@ -6,7 +6,8 @@
 
 
 var React = require('react-native');
-var {Text,View,TextInput} = React;
+
+
 
 var styles = React.StyleSheet.create({
     image:{
@@ -67,4 +68,4 @@ var styles = React.StyleSheet.create({
     }
 });
 
-module.exports = TrabbleStyleSheet;
+module.exports = styles;
