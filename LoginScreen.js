@@ -10,15 +10,12 @@ var MainActivity = require('./MainActivity');
 class LoginScreen extends React.Component {
 
     Login(){
-        alert();
-       
-        return <NavigatorIOS
-            initialRoute={{
-        component: MainActivity,
-        title: 'MainActivity',
-        passProps: { myProp: 'MainActivity' },
-      }}
-        />
+
+      return  <Navigator
+            initialRoute={{name: 'MainActivity', component: MainActivity, index: 0}}
+            renderScene={(route, navigator) =>    {
+    return React.createElement(<MainActivity />);
+  }} />
         }
 
 
