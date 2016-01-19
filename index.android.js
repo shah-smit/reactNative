@@ -9,12 +9,14 @@ var MainActivity = require('./MainActivity');
 
 class Trabble extends React.Component {
     render() {
-        return <LoginScreen></LoginScreen>
+        return <Navigator
+            style={{flex:1}}
+            initialRoute={{name: 'LoginScreen', component: LoginScreen, index: 0}}
+            renderScene={(route, navigator) =>    {
+                return React.createElement(route.component, {navigator});
+            }} />
     }
 }
 
-var Styles = React.StyleSheet.create({
-
-});
 
 React.AppRegistry.registerComponent('Trabble', function() { return Trabble });

@@ -18,27 +18,5 @@ class Trabble extends React.Component {
     }
 }
 
-var Styles = React.StyleSheet.create({
-    loginText: {
-        fontSize: 50,
-        color: "blue",
-        marginTop: 100,
-        alignSelf: "center"
-    },
-    usernameText: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginTop: 10
-    },
-    passwordText: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginTop: 10
-    }
-});
 
 React.AppRegistry.registerComponent('Trabble', function() { return Trabble });
-
-//React.createElement(React.Text, {style: styles.text}, "Hello World!");
