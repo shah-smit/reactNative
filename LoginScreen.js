@@ -20,16 +20,7 @@ class LoginScreen extends React.Component {
         }
     }
 
-    Login(){
-        if(this.state.username==''||this.state.password==''){
-            alert('Empty');
-        }
-        else{
 
-        this.props.navigator.push({
-            component: MainActivity
-        })}
-        }
 
 
 
@@ -46,14 +37,14 @@ class LoginScreen extends React.Component {
                 style={styles.usernameText}
                 placeholder="username"
                 placeholderTextColor="black"
-                onChangeText={(text) => this.setState({username: text})} />
+                onChange={(event) => this.setState({username: event.nativeEvent.text})} />
             <TextInput
                 style={styles.passwordText}
                 placeholder="password"
                 placeholderTextColor="black"
-                onChangeText={(text) => this.setState({password: text})}
-                onSubmitEditing={this.Login} secureTextEntry/>
-            <TouchableWithoutFeedback onPress={() => this.Login()}>
+                onChange={(event) => this.setState({password: event.nativeEvent.text})}
+                secureTextEntry/>
+            <TouchableWithoutFeedback onPress={(this.Login.bind(this))}>
                 <View style={styles.loginButton}>
                     <Text style={styles.loginButtonText}>
                         Sign In
@@ -74,6 +65,18 @@ class LoginScreen extends React.Component {
             </TouchableWithoutFeedback>
         </View>);
 
+    }
+
+    Login(){
+        if(this.state.username==''||this.state.password==''){
+            alert('Empty');
+        }
+        else{
+
+            this.props.navigator.push({
+                component: MainActivity,
+                passProps: {username: this.state.username, password: this.state.password}
+            })}
     }
 
 
