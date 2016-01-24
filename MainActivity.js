@@ -2,15 +2,20 @@
 
 
 var React = require('react-native');
-var {Text,View,TextInput} = React;
+var {Text,View,TextInput,TabBarIOS, NavigatorIOS} = React;
 
-
+var LoginScreen = require('./LoginScreen');
 
 class MainActivity extends React.Component {
+
     render() {
-        return<View>
-            <Text>Hi Welcome</Text>
-        </View>
+
+        return(
+            <View>
+                <Text>
+                    {LoginScreen.constructor.username}
+                </Text>
+            </View>);
     }
 }
 

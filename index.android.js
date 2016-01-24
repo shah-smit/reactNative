@@ -2,7 +2,7 @@
 
 
 var React = require('react-native');
-var {View,Text,NavigatorIOS,Navigator} = React;
+var {View,Text,NavigatorIOS,Navigator,NavigatorIOS} = React;
 
 var LoginScreen = require('./LoginScreen');
 var MainActivity = require('./MainActivity');
