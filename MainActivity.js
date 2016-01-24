@@ -22,7 +22,7 @@ class MainActivity extends React.Component {
         return(
             <View style={styles.view}>
                 <Text style={styles.Text}>
-                    Welcome {this.state.username}
+                    Welcome {this.props.username}
                 </Text>
             </View>);
     }
